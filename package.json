@@ -37,6 +37,9 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"@web-pacotes/lumberdash": "^0.0.2",
+		"@web-pacotes/networking": "^0.0.5",
+		"@web-pacotes/reactor-svelte": "^0.0.2",
 		"rippleui": "^1.9.2",
 		"typesafe-i18n": "^5.24.2"
 	},
