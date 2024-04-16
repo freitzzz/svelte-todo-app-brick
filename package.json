@@ -38,8 +38,10 @@
 	"type": "module",
 	"dependencies": {
 		"@web-pacotes/lumberdash": "^0.0.2",
-		"@web-pacotes/networking": "^0.0.5",
-		"@web-pacotes/reactor-svelte": "^0.0.2",
+		"@web-pacotes/networking": "^0.0.7",
+		"@web-pacotes/reactor-svelte": "^0.0.4",
+		"@web-pacotes/foundation-types": "^0.0.2",
+		"nanoid": "^5.0.7",
 		"rippleui": "^1.9.2",
 		"typesafe-i18n": "^5.24.2"
 	},
