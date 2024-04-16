@@ -1,7 +1,7 @@
 import type { Either, IOError } from '@web-pacotes/foundation-types';
 
 /**
- * A general purpose interface for accessing a data storage. The generic types [I] and [O] mark 
+ * A general purpose interface for accessing a data storage. The generic types [I] and [O] mark
  * the input and output types of the storage.
  */
 export interface Storage<I, O> {
