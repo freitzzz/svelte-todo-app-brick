@@ -1,9 +1,13 @@
 import {
 	isTodoCreated,
 	isTodoFetched,
+	isTodosDeleted,
+	isTodoUpdated,
 	TodoCreated,
 	type TodoEvent,
-	type TodoFetched
+	type TodoFetched,
+	type TodosDeleted,
+	type TodoUpdated
 } from './event';
 import { TodoInitial, type TodoState, TodoUpdate } from './state';
 import { logError, logMessage } from '@web-pacotes/lumberdash';
@@ -24,13 +28,23 @@ export class TodoReactor extends Reactor<TodoEvent, TodoState> {
 			logMessage(`Received new todo: ${todo.value}`);
 
 			if (todo.value.trim().length > 0) {
-				await repository.add(todo);
+				const result = await repository.add(todo);
 
-				emit(TodoUpdate([...this.state.value, event.value]));
+				emit(
+					fold(
+						result,
+						(l) => {
+							logError(wrap(l));
+
+							return this.state;
+						},
+						(r) => TodoUpdate(r)
+					)
+				);
 			}
 		}, isTodoCreated);
 
-		this.on<TodoFetched>(async (event, emit) => {
+		this.on<TodoFetched>(async (_, emit) => {
 			logMessage(`Fetching all todos...`);
 
 			const result = await repository.all();
@@ -47,5 +61,42 @@ export class TodoReactor extends Reactor<TodoEvent, TodoState> {
 				)
 			);
 		}, isTodoFetched);
+
+		this.on<TodoUpdated>(async (event, emit) => {
+			logMessage(`Updating todo... ${event.value}`);
+
+			const result = await repository.update(event.value);
+
+			emit(
+				fold(
+					result,
+					(l) => {
+						logError(wrap(l));
+
+						return this.state;
+					},
+					(r) => TodoUpdate(r)
+				)
+			);
+		}, isTodoUpdated);
+
+		this.on<TodosDeleted>(async (event, emit) => {
+			logMessage(`Deleting todos...`);
+
+			const completedTodos = this.state.value.filter((x) => x.done);
+			const result = await repository.delete(completedTodos);
+
+			emit(
+				fold(
+					result,
+					(l) => {
+						logError(wrap(l));
+
+						return this.state;
+					},
+					(r) => TodoUpdate(r)
+				)
+			);
+		}, isTodosDeleted);
 	}
 }
