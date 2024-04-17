@@ -80,7 +80,7 @@ export class TodoReactor extends Reactor<TodoEvent, TodoState> {
 			);
 		}, isTodoUpdated);
 
-		this.on<TodosDeleted>(async (event, emit) => {
+		this.on<TodosDeleted>(async (_, emit) => {
 			logMessage(`Deleting todos...`);
 
 			const completedTodos = this.state.value.filter((x) => x.done);
