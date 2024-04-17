@@ -8,7 +8,8 @@ import { nanoid } from 'nanoid';
 export function Todo(value: string) {
 	return {
 		id: nanoid(),
-		value: value
+		value: value,
+		done: false
 	};
 }
 
