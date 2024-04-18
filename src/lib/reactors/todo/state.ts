@@ -2,14 +2,14 @@ import type { Todo } from '@models';
 
 export function TodoInitial(value: Todo[] = []) {
 	return {
-		type: 'todo-initial',
+		type: 'todo-initial' as const,
 		value: value
 	};
 }
 
 export function TodoUpdate(value: Todo[]) {
 	return {
-		type: 'todo-update',
+		type: 'todo-update' as const,
 		value: value
 	};
 }

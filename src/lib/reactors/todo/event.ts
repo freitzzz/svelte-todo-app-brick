@@ -1,30 +1,29 @@
 import type { Todo } from '@models';
 import { isTypedOf } from '@web-pacotes/reactor-svelte';
-import { TodoUpdate } from '$lib/reactors';
 
 export function TodoCreated(value: Todo) {
 	return {
-		type: 'todo-created',
+		type: 'todo-created' as const,
 		value: value
 	};
 }
 
 export function TodoFetched() {
 	return {
-		type: 'todo-fetched'
+		type: 'todo-fetched' as const
 	};
 }
 
 export function TodoUpdated(value: Todo) {
 	return {
-		type: 'todo-updated',
+		type: 'todo-updated' as const,
 		value: value
 	};
 }
 
 export function TodosDeleted() {
 	return {
-		type: 'todos-deleted'
+		type: 'todos-deleted' as const
 	};
 }
 
