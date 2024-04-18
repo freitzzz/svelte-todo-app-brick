@@ -1,5 +1,5 @@
-export interface CheckBoxItem {
+export type CheckBoxItem = {
 	id: string;
 	value: string;
 	active: boolean;
-}
+};
