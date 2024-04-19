@@ -9,7 +9,7 @@ import {
 	type TodosDeleted,
 	type TodoUpdated
 } from './event';
-import { TodoInitial, type TodoState, TodoUpdate } from './state';
+import { TodoInitial, type TodoState, TodoUpdate, TodoFailure } from './state';
 import { logError, logMessage } from '@web-pacotes/lumberdash';
 import type { TodosRepository } from '@data';
 import { Reactor } from '@web-pacotes/reactor-svelte';
@@ -36,7 +36,7 @@ export class TodoReactor extends Reactor<TodoEvent, TodoState> {
 						(l) => {
 							logError(wrap(l));
 
-							return this.state;
+							return TodoFailure(this.state.value, 'update') as TodoState;
 						},
 						(r) => TodoUpdate(r)
 					)
@@ -55,7 +55,7 @@ export class TodoReactor extends Reactor<TodoEvent, TodoState> {
 					(l) => {
 						logError(wrap(l));
 
-						return this.state;
+						return TodoFailure(this.state.value, 'fetch') as TodoState;
 					},
 					(r) => TodoUpdate(r)
 				)
@@ -73,7 +73,7 @@ export class TodoReactor extends Reactor<TodoEvent, TodoState> {
 					(l) => {
 						logError(wrap(l));
 
-						return this.state;
+						return TodoFailure(this.state.value, 'update') as TodoState;
 					},
 					(r) => TodoUpdate(r)
 				)
@@ -92,7 +92,7 @@ export class TodoReactor extends Reactor<TodoEvent, TodoState> {
 					(l) => {
 						logError(wrap(l));
 
-						return this.state;
+						return TodoFailure(this.state.value, 'update') as TodoState;
 					},
 					(r) => TodoUpdate(r)
 				)
