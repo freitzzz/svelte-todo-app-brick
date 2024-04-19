@@ -1,14 +1,15 @@
 <script lang="ts">
 	import { TodoList } from '@presentation';
-	import { TodoCreated, TodoReactor, TodosDeleted, TodoUpdated } from '@reactors';
-	import { logMessage } from '@web-pacotes/lumberdash';
+	import { AlertsReactor, TodoCreated, TodoReactor, TodosDeleted, TodoUpdated } from '@reactors';
 	import { ReactorListener, resolve } from '@web-pacotes/reactor-svelte';
+	import { onTodoStateChanged } from './page-listeners';
 
 	const todos = resolve(TodoReactor);
+	const alerts = resolve(AlertsReactor);
 </script>
 
 <div class="flex justify-center">
-	<ReactorListener reactor={todos} listener={(state) => logMessage(`new state: ${state.type}`)}>
+	<ReactorListener reactor={todos} listener={(state) => onTodoStateChanged(state, alerts)}>
 		<TodoList
 			values={$todos.value}
 			onNewTodo={(value) => todos.add(TodoCreated(value))}
