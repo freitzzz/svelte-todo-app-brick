@@ -3,7 +3,12 @@ import type { Breakpoint } from '@presentation';
 /**
  * Asset sizes following the T-shirt sizing guidelines.
  */
-export type ShirtSize = 's' | 'm' | 'l' | 'xl' | '2xl';
+type ShirtSize = 's' | 'm' | 'l' | 'xl' | '2xl';
+
+/**
+ * All image sizes accepted in assets usage.
+ */
+export type ImageSize = ShirtSize | 'raw'
 
 /**
  * Converts a [Breakpoint] literal into a [ShirtSize] literal.
