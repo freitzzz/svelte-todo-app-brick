@@ -4,7 +4,7 @@
 	import { MultiReactorProvider } from '@web-pacotes/reactor-svelte';
 	import { TodoFetched, TodoReactor, AlertsReactor } from '@reactors';
 	import { browser } from '$app/environment';
-	import { ToastGroup } from '@presentation';
+	import { BreakpointProvider, ToastGroup } from '@presentation';
 
 	const appVault = vault(browser ? window.window : undefined);
 
@@ -15,7 +15,9 @@
 </script>
 
 <MultiReactorProvider reactors={[todos, alerts]}>
-	<slot />
+	<BreakpointProvider>
+		<slot />
+	</BreakpointProvider>
 
 	<ToastGroup values={$alerts.value} />
 </MultiReactorProvider>
