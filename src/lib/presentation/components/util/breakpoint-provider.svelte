@@ -37,8 +37,6 @@ Provider component for a svelte store of [Breakpoint].
 						store.set('2xl');
 						break;
 				}
-
-				console.log($store);
 			}
 		});
 
