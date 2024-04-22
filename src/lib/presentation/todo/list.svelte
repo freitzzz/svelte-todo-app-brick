@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { Todo } from '@models';
-	import { CheckList, type CheckBoxItem } from '../components';
+	import { type CheckBoxItem, CheckList, WritingHand } from '../components';
 
 	export let values: Todo[];
 	export let onNewTodo: (todo: Todo) => void;
@@ -20,9 +20,17 @@
 	$: completed = checkListValues.filter((x) => x.active);
 </script>
 
-<div class="card">
-	<div class="card-body">
+<div class="card overflow-y-auto">
+	<div class="card-body break-all">
 		<h2 class="card-header">TODO</h2>
+		{#if checkListValues.length === 0}
+			<div class="flex flex-col items-center">
+				<div class="w-32">
+					<WritingHand />
+				</div>
+				<p>Nothing here yet! What's on your mind?</p>
+			</div>
+		{/if}
 		<input
 			bind:this={newTodoInput}
 			class="input"
