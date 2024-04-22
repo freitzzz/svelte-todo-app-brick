@@ -8,13 +8,15 @@
 	const alerts = resolve(AlertsReactor);
 </script>
 
-<div class="flex justify-center">
-	<ReactorListener reactor={todos} listener={(state) => onTodoStateChanged(state, alerts)}>
-		<TodoList
-			values={$todos.value}
-			onNewTodo={(value) => todos.add(TodoCreated(value))}
-			onUpdateTodo={(value) => todos.add(TodoUpdated(value))}
-			onDeleteTodos={() => todos.add(TodosDeleted())}
-		/>
-	</ReactorListener>
-</div>
+<section class="m-4 h-1/3">
+	<div class="flex max-h-full justify-center overflow-hidden">
+		<ReactorListener reactor={todos} listener={(state) => onTodoStateChanged(state, alerts)}>
+			<TodoList
+				values={$todos.value}
+				onNewTodo={(value) => todos.add(TodoCreated(value))}
+				onUpdateTodo={(value) => todos.add(TodoUpdated(value))}
+				onDeleteTodos={() => todos.add(TodosDeleted())}
+			/>
+		</ReactorListener>
+	</div>
+</section>

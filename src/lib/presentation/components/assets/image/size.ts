@@ -8,7 +8,7 @@ type ShirtSize = 's' | 'm' | 'l' | 'xl' | '2xl';
 /**
  * All image sizes accepted in assets usage.
  */
-export type ImageSize = ShirtSize | 'raw'
+export type ImageSize = ShirtSize | 'raw';
 
 /**
  * Converts a [Breakpoint] literal into a [ShirtSize] literal.
