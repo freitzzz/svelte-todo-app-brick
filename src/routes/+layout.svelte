@@ -2,9 +2,15 @@
 	import '../app.css';
 	import { vault } from '@core';
 	import { MultiReactorProvider } from '@web-pacotes/reactor-svelte';
-	import { TodoFetched, TodoReactor, AlertsReactor } from '@reactors';
+	import { AlertsReactor, TodoFetched, TodoReactor } from '@reactors';
 	import { browser } from '$app/environment';
-	import { BreakpointProvider, ToastGroup } from '@presentation';
+	import {
+		BreakpointProvider,
+		GlobalThemeDropdown,
+		ThemeProvider,
+		ToastGroup
+	} from '@presentation';
+	import { onMount } from 'svelte';
 
 	const appVault = vault(browser ? window.window : undefined);
 
@@ -12,12 +18,21 @@
 	const alerts = new AlertsReactor();
 
 	todos.add(TodoFetched());
+
+	$: mounted = false;
+
+	onMount(() => (mounted = true));
 </script>
 
-<MultiReactorProvider reactors={[todos, alerts]}>
-	<BreakpointProvider>
-		<slot />
-	</BreakpointProvider>
+<BreakpointProvider>
+	<ThemeProvider>
+		<MultiReactorProvider reactors={[todos, alerts]}>
+			{#if mounted}
+				<slot />
+			{/if}
 
-	<ToastGroup values={$alerts.value} />
-</MultiReactorProvider>
+			<GlobalThemeDropdown />
+			<ToastGroup values={$alerts.value} />
+		</MultiReactorProvider>
+	</ThemeProvider>
+</BreakpointProvider>
