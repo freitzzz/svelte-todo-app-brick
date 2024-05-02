@@ -12,7 +12,7 @@ export type Breakpoint = 'sm' | 'md' | 'lg' | 'xl' | '2xl';
  * Provides a breakpoint store to children components.
  */
 export const provideBreakpointStore = () =>
-	setContext(breakpointStoreContextKey, writable<Breakpoint>('md'));
+	setContext(breakpointStoreContextKey, writable<Breakpoint>());
 
 /**
  * Resolves the nearest breakpoint store.
