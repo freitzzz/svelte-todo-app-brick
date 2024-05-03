@@ -4,7 +4,7 @@ const en = {
 	todoList: {
 		empty: "Nothing here yet! What's on your mind?",
 		new: 'New todo...',
-		delete: 'Delete asdf',
+		delete: 'Delete completed',
 		updated: 'Updated',
 		alerts: {
 			updateFailure: {
