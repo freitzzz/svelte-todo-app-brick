@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { Todo } from '@models';
 	import { type CheckBoxItem, CheckList, WritingHand } from '../components';
+	import { LL } from '@i18n';
 
 	export let values: Todo[];
 	export let onNewTodo: (todo: Todo) => void;
@@ -18,6 +19,8 @@
 	});
 
 	$: completed = checkListValues.filter((x) => x.active);
+
+	$: ll = $LL.todoList;
 </script>
 
 <div class="card overflow-y-auto">
@@ -28,14 +31,14 @@
 				<div class="w-32">
 					<WritingHand />
 				</div>
-				<p>Nothing here yet! What's on your mind?</p>
+				<p>{ll.empty()}</p>
 			</div>
 		{/if}
 		<input
 			bind:this={newTodoInput}
 			class="input"
 			type="text"
-			placeholder="New todo..."
+			placeholder={ll.new()}
 			on:keypress={(event) => {
 				if (event.key === 'Enter') {
 					onNewTodo(Todo(newTodoInput.value));
@@ -65,11 +68,11 @@
 					onDeleteTodos();
 				}}
 			>
-				Delete completed
+				{ll.delete()}
 			</button>
 		</div>
 		<h3 class="card-footer justify-end text-sm italic">
-			<span>Updated ({new Date().toLocaleTimeString()})</span>
+			<span>{ll.updated()} ({new Date().toLocaleTimeString()})</span>
 		</h3>
 	</div>
 </div>

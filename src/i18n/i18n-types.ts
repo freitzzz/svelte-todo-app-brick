@@ -12,17 +12,69 @@ export type Translation = RootTranslation;
 export type Translations = RootTranslation;
 
 type RootTranslation = {
-	/**
-	 * T​h​i​s​ ​p​r​o​j​e​c​t​ ​w​a​s​ ​g​e​n​e​r​a​t​e​d​ ​w​i​t​h​ ​d​a​r​t​-​p​a​c​o​t​e​s​/​.​b​r​i​c​k​s​:​ ​h​t​t​p​s​:​/​/​g​i​t​h​u​b​.​c​o​m​/​d​a​r​t​-​p​a​c​o​t​e​s​/​.​b​r​i​c​k​s​/​t​r​e​e​/​m​a​s​t​e​r​/​a​p​l​i​c​a​c​a​o​-​w​e​b
-	 */
-	greetings: string;
+	todoList: {
+		/**
+		 * N​o​t​h​i​n​g​ ​h​e​r​e​ ​y​e​t​!​ ​W​h​a​t​'​s​ ​o​n​ ​y​o​u​r​ ​m​i​n​d​?
+		 */
+		empty: string;
+		/**
+		 * N​e​w​ ​t​o​d​o​.​.​.
+		 */
+		new: string;
+		/**
+		 * D​e​l​e​t​e​ ​c​o​m​p​l​e​t​e​d
+		 */
+		delete: string;
+		/**
+		 * U​p​d​a​t​e​d
+		 */
+		updated: string;
+		alerts: {
+			updateFailure: {
+				/**
+				 * U​p​d​a​t​e​ ​f​a​i​l​u​r​e
+				 */
+				title: string;
+				/**
+				 * C​o​u​l​d​n​'​t​ ​u​p​d​a​t​e​ ​t​h​e​ ​l​a​s​t​ ​t​o​d​o
+				 */
+				message: string;
+			};
+		};
+	};
 };
 
 export type TranslationFunctions = {
-	/**
-	 * This project was generated with dart-pacotes/.bricks: https://github.com/dart-pacotes/.bricks/tree/master/aplicacao-web
-	 */
-	greetings: () => LocalizedString;
+	todoList: {
+		/**
+		 * Nothing here yet! What's on your mind?
+		 */
+		empty: () => LocalizedString;
+		/**
+		 * New todo...
+		 */
+		new: () => LocalizedString;
+		/**
+		 * Delete completed
+		 */
+		delete: () => LocalizedString;
+		/**
+		 * Updated
+		 */
+		updated: () => LocalizedString;
+		alerts: {
+			updateFailure: {
+				/**
+				 * Update failure
+				 */
+				title: () => LocalizedString;
+				/**
+				 * Couldn't update the last todo
+				 */
+				message: () => LocalizedString;
+			};
+		};
+	};
 };
 
 export type Formatters = {};
