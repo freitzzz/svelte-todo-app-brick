@@ -17,7 +17,13 @@
 
 <div class="dropdown">
 	<div class="mt-2 cursor-pointer" tabindex="-1">
-		<svelte:component this={icons[$store]} />
+		{#if $store === 'dark'}
+			<div class="fill-white">
+				<svelte:component this={icons[$store]} />
+			</div>
+		{:else}
+			<svelte:component this={icons[$store]} />
+		{/if}
 	</div>
 	<div
 		{id}
