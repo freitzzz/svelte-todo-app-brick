@@ -22,7 +22,7 @@ type RootTranslation = {
 		 */
 		new: string;
 		/**
-		 * D​e​l​e​t​e​ ​c​o​m​p​l​e​t​e​d
+		 * D​e​l​e​t​e​ ​a​s​d​f
 		 */
 		delete: string;
 		/**
@@ -42,6 +42,22 @@ type RootTranslation = {
 			};
 		};
 	};
+	asdf: {
+		/**
+		 * Y​o​u​ ​h​a​v​e​ ​f​o​u​n​d​ ​o​u​t​ ​a​ ​s​e​c​r​e​t​ ​p​a​g​e​.​.​.
+		 */
+		title: string;
+		/**
+		 * T​h​e​r​e​ ​i​s​n​'​t​ ​a​n​y​ ​c​o​o​l​ ​h​e​r​e​,​ ​b​u​t​ ​y​o​u​ ​c​a​n​ ​s​t​a​r​ ​t​h​i​s​ ​p​r​o​j​e​c​t​ ​o​n​ ​G​i​t​H​u​b​.​.​.​ ​I​t​ ​h​e​l​p​s​ ​a​ ​t​o​n​!
+		 */
+		description: string;
+		actions: {
+			/**
+			 * A​b​s​o​l​u​t​e​l​y​!​ ​:​)
+			 */
+			visit: string;
+		};
+	};
 };
 
 export type TranslationFunctions = {
@@ -55,7 +71,7 @@ export type TranslationFunctions = {
 		 */
 		new: () => LocalizedString;
 		/**
-		 * Delete completed
+		 * Delete asdf
 		 */
 		delete: () => LocalizedString;
 		/**
@@ -73,6 +89,22 @@ export type TranslationFunctions = {
 				 */
 				message: () => LocalizedString;
 			};
+		};
+	};
+	asdf: {
+		/**
+		 * You have found out a secret page...
+		 */
+		title: () => LocalizedString;
+		/**
+		 * There isn't any cool here, but you can star this project on GitHub... It helps a ton!
+		 */
+		description: () => LocalizedString;
+		actions: {
+			/**
+			 * Absolutely! :)
+			 */
+			visit: () => LocalizedString;
 		};
 	};
 };

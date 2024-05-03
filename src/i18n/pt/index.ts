@@ -12,6 +12,13 @@ const pt = {
 				message: 'Não foi possível atualizar o ultímo todo'
 			}
 		}
+	},
+	asdf: {
+		title: 'Encontraste uma página secreta...',
+		description: 'Mas não existe nada fixe aqui... Contudo podes dar star a este projeto no GitHub',
+		actions: {
+			visit: 'Obrigado! :)'
+		}
 	}
 } satisfies Translation;
 
