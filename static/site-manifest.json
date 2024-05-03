@@ -1,6 +1,6 @@
 {
-	"name": "replace-by-name",
-	"short_name": "replace-by-name",
+	"name": "My Todo List",
+	"short_name": "My Todo List",
 	"icons": [
 		{
 			"src": "/favicon.ico",

@@ -11,7 +11,7 @@
 			</p>
 			<div class="card-footer">
 				<a class="btn btn-primary" href="https://github.com/dart-pacotes/.bricks" target="_blank"
-				>{$LL.asdf.actions.visit()}</a
+					>{$LL.asdf.actions.visit()}</a
 				>
 			</div>
 		</div>
