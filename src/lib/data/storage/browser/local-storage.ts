@@ -56,7 +56,7 @@ export class LocalBrowserStorage implements BrowserStorage<string> {
 	exists(key: string): Promise<Either<IOError, boolean>> {
 		return Promise.resolve(
 			safeThrowCall(
-				() => Right(this.storage.getItem(key) !== null),
+				() => Right(typeof this.storage.getItem(key) === 'string'),
 				(error) => ReadError(`could not use local storage: ${error.message}`, error.stack)
 			) as Either<IOError, boolean>
 		);
