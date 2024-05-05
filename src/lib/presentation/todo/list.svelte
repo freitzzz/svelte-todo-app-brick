@@ -27,7 +27,7 @@
 	<div class="card-body break-all">
 		<h2 class="card-header">TODO</h2>
 		{#if checkListValues.length === 0}
-			<div class="flex flex-col items-center">
+			<div id="empty-todo-list" class="flex flex-col items-center">
 				<div class="w-32">
 					<WritingHand />
 				</div>
@@ -36,6 +36,7 @@
 		{/if}
 		<input
 			bind:this={newTodoInput}
+			id="new-todo-input"
 			class="input"
 			type="text"
 			placeholder={ll.new()}
@@ -62,6 +63,7 @@
 		/>
 		<div class="flex justify-center">
 			<button
+				id="delete-completed-todos"
 				class="btn btn-primary w-fit"
 				disabled={completed.length === 0}
 				on:click={() => {
