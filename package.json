@@ -1,6 +1,6 @@
 {
 	"name": "svelte-todo-app-brick",
-	"description": "todo app showcasing the features provided in aplicacao_web brick (https:&#x2F;&#x2F;github.com&#x2F;dart-pacotes&#x2F;.bricks)",
+	"description": "todo app showcasing the features provided in aplicacao_web brick (https://github.com/dart-pacotes/.bricks)",
 	"author": "freitzzz",
 	"version": "0.0.1",
 	"private": true,
@@ -14,9 +14,11 @@
 		"format": "prettier --write .",
 		"typesafe-i18n": "typesafe-i18n",
 		"test": "vitest --run",
-		"test:coverage": "vitest run --coverage"
+		"test:coverage": "vitest run --coverage",
+		"test:e2e": "playwright test --headed"
 	},
 	"devDependencies": {
+		"@playwright/test": "^1.43.1",
 		"@sveltejs/adapter-node": "^1.2.1",
 		"@sveltejs/kit": "^1.20.4",
 		"@testing-library/svelte": "^4.1.0",
@@ -43,7 +45,7 @@
 	},
 	"type": "module",
 	"dependencies": {
-		"@web-pacotes/foundation-types": "^0.0.2",
+		"@web-pacotes/foundation-types": "^0.0.3",
 		"@web-pacotes/lumberdash": "^0.0.2",
 		"@web-pacotes/networking": "^0.0.7",
 		"@web-pacotes/reactor-svelte": "^0.0.5",
