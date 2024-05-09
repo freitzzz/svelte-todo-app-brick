@@ -110,7 +110,7 @@ describe('todo-list', () => {
 			});
 
 			const el = await result.findByTestId(id);
-			await fireEvent.keyPress(el, {key: 'Enter'})
+			await fireEvent.keyPress(el, { key: 'Enter' });
 
 			expect(onNewTodo).toBeCalled();
 		});
