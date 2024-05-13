@@ -1,14 +1,35 @@
 # svelte-todo-app-brick
 
-todo app showcasing the features provided in aplicacao_web brick (https:&#x2F;&#x2F;github.com&#x2F;dart-pacotes&#x2F;.bricks)
+A Svelte-Kit app powered by a multi-layered architecture with reactive state management on top of stores.
+
+This project can be generated with few other options on https://github.com/dart-pacotes/.bricks
 
 ## Features
 
-todo: enumerate features app currently provides
+- Built around [Reactor](https://github.com/web-pacotes/reactor) state manager (very inspired from Flutter Bloc)
+- Clean separation of concerns in multiple layers (components > reactors)
+- Guarded with Monads + other FP best practices
+- Painless Dependency Injection ([Vault](src/lib/core/vault.ts))
+- Unit tests (with vitest + coverage report)
+- Component tests (with vitest + coverage report)
+- E2E Tests (using Playwright)
+- Light + Dark + Any other theme customization ([theme](src/lib/presentation/components/util/theme/))
+- Server-side Routing
+- TailwindCSS + Tailwind framework ([Ripple UI](https://www.ripple-ui.com/))
+- T-Shirt sized asset images system ([assets](src/lib/presentation/components/assets/))
+- Out of the box localization system ([typesafe-i18n](src/i18n/))
+- Out of the box client alert components/logic
+- Out of the box logging on client + server side ([hooks](src))
+- Out of the box linting + formatting (with eslint)
+- Git Client-side hooks for formatting before pushing
+- GitHub Action Workflow for verifying project state (linting + tests)
+- Favicon + SEO
+- CLI tool to configure app architecture + other configurations ([app-manager](tools/app-manager/))
 
 ### Upcoming features
 
-todo: enumerate features app does not provide
+- GitHub Action Workflow to automate deployment process
+- Automatic management of assets + favicon through app-manager
 
 ## Demo
 
