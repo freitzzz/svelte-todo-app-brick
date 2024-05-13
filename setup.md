@@ -29,7 +29,7 @@ available commands to use.
 | `npm run typesafe-i18n` | update localization files                          |
 | `npm run lint`          | analyze and lint the project                       |
 | `npm run format`        | format the project based on lint feedback          |
-| `npm run manager`        | runs app manager tool          |
+| `npm run manager`       | runs app manager tool                              |
 | `npm run build`         | build app in production environment                |
 | `npm run test`          | runs unit + component tests                        |
 | `npm run test:coverage` | runs unit + component tests and coverage report    |
